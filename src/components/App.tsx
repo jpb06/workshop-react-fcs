@@ -10,8 +10,8 @@ export const App = () => (
   <MuiThemeProvider theme={appTheme}>
     <CssBaseline />
     <Grid container direction="row" justify="center" alignItems="center">
-      {/* <MyDevFriendsClass />*/}
-      <MyDevFriends />
+      <MyDevFriendsClass />
+      {/* <MyDevFriends />*/}
     </Grid>
   </MuiThemeProvider>
 );
