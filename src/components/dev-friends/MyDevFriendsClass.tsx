@@ -1,27 +1,36 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import {
     Card, CardActionArea, CardActions, CardContent, CardMedia, Typography
 } from "@material-ui/core";
 
+import { fetchDevsAction, fetchSquadsAction, setSelectedSquadsAction } from "../../redux/actions";
+import { RootState } from "../../redux/store/root.state";
+import { Dev } from "../../types/dev.type";
 import { SquadFilterClass } from "./Filters/SquadFilterClass";
 import { DevsListClass } from "./list/DevsListClass";
 
-interface MyDevFriendsState {
-  selectedSquads: Array<number>;
+interface MyDevFriendsProps extends RootState {
+  fetchSquadsAction: () => Promise<Array<number>>;
+  setSelectedSquadsAction: (squads: Array<number>) => void;
+  fetchDevsAction: (squads: Array<number>) => Promise<Array<Dev>>;
 }
 
-export class MyDevFriendsClass extends React.Component<{}, MyDevFriendsState> {
+class MyDevFriendsComponent extends React.Component<MyDevFriendsProps> {
   constructor(props: any) {
     super(props);
-    this.state = {
-      selectedSquads: [1, 2, 3, 4],
-    };
-    this.onSquadsFiltered = this.onSquadsFiltered.bind(this);
+    this.handleSquadsFiltered = this.handleSquadsFiltered.bind(this);
   }
 
-  onSquadsFiltered(selectedSquads: Array<number>) {
-    this.setState({ selectedSquads });
+  componentDidMount() {
+    this.props.fetchSquadsAction();
+    this.props.fetchDevsAction([1, 2, 3, 4]);
+  }
+
+  async handleSquadsFiltered(selectedSquads: Array<number>) {
+    this.props.setSelectedSquadsAction(selectedSquads);
+    await this.props.fetchDevsAction(selectedSquads);
   }
 
   render() {
@@ -44,10 +53,27 @@ export class MyDevFriendsClass extends React.Component<{}, MyDevFriendsState> {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <SquadFilterClass onSquadsFiltered={this.onSquadsFiltered} />
+          <SquadFilterClass
+            squads={this.props.squads}
+            onSquadsFiltered={this.handleSquadsFiltered}
+          />
         </CardActions>
-        <DevsListClass selectedSquads={this.state.selectedSquads} />
+        <DevsListClass
+          isLoading={this.props.isAppLoading}
+          devs={this.props.devs}
+        />
       </Card>
     );
   }
 }
+
+const mapStateToProps = (state: RootState) => state;
+const mapDispatchToProps = {
+  fetchSquadsAction,
+  setSelectedSquadsAction,
+  fetchDevsAction,
+};
+export const MyDevFriendsClass = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MyDevFriendsComponent);

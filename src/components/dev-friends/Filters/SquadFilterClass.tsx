@@ -2,17 +2,13 @@ import React from "react";
 
 import { Checkbox, FormControlLabel, Grid } from "@material-ui/core";
 
-import { getSquads } from "../../../mockApi/api";
-import { LinearLoading } from "../../generic/LinearLoading";
-
 interface SqualFilterProps {
   onSquadsFiltered: (selectedSquads: Array<number>) => void;
+  squads: Array<number>;
 }
 
 interface SqualFilterState {
-  squads: Array<number>;
-  isLoading: boolean;
-  fromValues: Array<boolean>;
+  formValues: Array<boolean>;
 }
 
 export class SquadFilterClass extends React.Component<
@@ -22,20 +18,9 @@ export class SquadFilterClass extends React.Component<
   constructor(props: SqualFilterProps) {
     super(props);
     this.state = {
-      squads: [],
-      isLoading: true,
-      fromValues: [true, true, true, true],
+      formValues: [true, true, true, true],
     };
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-  }
-
-  async componentDidMount() {
-    await this.getSquadsFromApi();
-  }
-
-  async getSquadsFromApi() {
-    const squads = await getSquads();
-    this.setState({ squads, isLoading: false });
   }
 
   handleCheckboxChange(
@@ -44,11 +29,11 @@ export class SquadFilterClass extends React.Component<
   ) {
     const index = parseInt(event.target.name, 10);
 
-    const newValues = [...this.state.fromValues];
+    const newValues = [...this.state.formValues];
     if (index !== -1) {
       newValues[index] = checked;
     }
-    this.setState({ fromValues: newValues });
+    this.setState({ formValues: newValues });
 
     const selectedSquads = newValues
       .map((el, index) => (el ? index + 1 : undefined))
@@ -58,18 +43,14 @@ export class SquadFilterClass extends React.Component<
   }
 
   render() {
-    if (this.state.isLoading) {
-      return <LinearLoading />;
-    }
-
     return (
       <Grid container spacing={3} justify="center" alignItems="center">
-        {this.state.squads.map((el, index) => (
+        {this.props.squads.map((el, index) => (
           <FormControlLabel
             key={el}
             control={
               <Checkbox
-                checked={this.state.fromValues[index]}
+                checked={this.state.formValues[index]}
                 onChange={this.handleCheckboxChange}
                 style={{ transform: "scale(1.5)" }}
                 name={`${index}`}

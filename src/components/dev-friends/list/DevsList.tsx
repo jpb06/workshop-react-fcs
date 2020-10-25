@@ -2,15 +2,14 @@ import React from "react";
 
 import { Card, CardContent, CardMedia, Grid } from "@material-ui/core";
 
-import { useDevsLoading } from "../../../hooks/useDevsLoading.hook";
+import { useDevsInit } from "../../../hooks/useDevsInit.hook";
+import { isAppLoadingSelector } from "../../../redux/selectors";
+import { useRootSelector } from "../../../types/use.root.selector";
 import { CircularLoading } from "../../generic/CircularLoading";
 
-interface DevsListProps {
-  selectedSquads: Array<number>;
-}
-
-export const DevsList: React.FC<DevsListProps> = ({ selectedSquads }) => {
-  const [devs, isLoading] = useDevsLoading(selectedSquads);
+export const DevsList = () => {
+  const isLoading = useRootSelector(isAppLoadingSelector);
+  const devs = useDevsInit();
 
   if (isLoading) {
     return <CircularLoading />;
