@@ -6,7 +6,7 @@ export const useSquadLoading = (): [Array<number>, boolean] => {
   const [squads, setSquads] = useState<Array<number>>([]);
   const [hasLoaded, setHasLoaded] = useState(false);
 
-  useEffect(() => {
+  const sideEffect = () => {
     console.log(`useSquadLoading useEffect! hasLoaded=${hasLoaded}`);
     const fetch = async () => {
       const data = await getSquads();
@@ -14,10 +14,9 @@ export const useSquadLoading = (): [Array<number>, boolean] => {
       setHasLoaded(true);
     };
 
-    if (!hasLoaded) {
-      fetch();
-    }
-  }, [hasLoaded]);
+    if (!hasLoaded) fetch();
+  };
+  useEffect(sideEffect, [hasLoaded]);
 
   return [squads, hasLoaded];
 };
