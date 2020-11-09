@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Checkbox, FormControlLabel, Grid } from "@material-ui/core";
 
+import { useSquadFilterForm } from "../../../hooks/useSquadFilterForm.hook";
 import { useSquadLoading } from "../../../hooks/useSquadLoading.hook";
 import { LinearLoading } from "../../generic/LinearLoading";
 
@@ -13,26 +14,7 @@ export const SquadFilter: React.FC<SquadFilterProps> = ({
   onSquadsFiltered,
 }) => {
   const [squads, hasLoaded] = useSquadLoading();
-  const [formValues, setFormValues] = useState([true, true, true, true]);
-
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    checked: boolean
-  ) => {
-    const index = parseInt(event.target.name, 10);
-
-    const newValues = [...formValues];
-    if (index !== -1) {
-      newValues[index] = checked;
-    }
-    setFormValues(newValues);
-
-    const selectedSquads = newValues
-      .map((el, index) => (el ? index + 1 : undefined))
-      .filter((el) => el !== undefined) as Array<number>;
-
-    onSquadsFiltered(selectedSquads);
-  };
+  const { formValues, handleChange } = useSquadFilterForm(onSquadsFiltered);
 
   if (!hasLoaded) {
     return <LinearLoading />;
