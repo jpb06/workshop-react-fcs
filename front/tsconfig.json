@@ -15,7 +15,7 @@
     "jsx": "preserve",
     "baseUrl": "src",
     "paths": {
-      "@api/*": ["api/*"],
+      "@api/*": ["api/hooks/*"],
       "@components/*": ["components/*"],
       "@owntypes/*": ["types/*"]
     }
