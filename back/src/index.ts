@@ -1,4 +1,3 @@
-import bodyParser from "body-parser";
 import cors from "cors";
 import express, { Express } from "express";
 
@@ -7,8 +6,8 @@ import { mainRouter } from "./routes";
 
 const app: Express = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded());
 app.use(cors());
 
 // simulate delay
