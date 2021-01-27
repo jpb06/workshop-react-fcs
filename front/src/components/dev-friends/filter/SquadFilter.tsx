@@ -17,13 +17,7 @@ export const SquadFilter: React.FC = () => {
   if (!squads) return null;
 
   return (
-    <Grid
-      container
-      spacing={3}
-      justify="center"
-      alignItems="center"
-      className={classes.root}
-    >
+    <Grid container spacing={3} justify="center" alignItems="center">
       {squads.map((el, index) => (
         <FormControlLabel
           key={el}
