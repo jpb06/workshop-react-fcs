@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 
 import { useDevsBySquadQuery } from "@api/useDevsBySquadQuery.hook";
+import { CircularLoading } from "@components/generic/circular-loading/CircularLoading";
 import { Card, CardContent, CardMedia, Grid } from "@material-ui/core";
 
 import { DevFriendsContext } from "../contexts/DevFriendsContext.context";
@@ -12,16 +13,10 @@ export const DevsList: React.FC = () => {
   const [squads] = useContext(DevFriendsContext);
   const { data: devs } = useDevsBySquadQuery(squads);
 
-  if (!devs) return null;
+  if (!devs) return <CircularLoading />;
 
   return (
-    <Grid
-      container
-      spacing={1}
-      justify="center"
-      alignItems="center"
-      className={classes.root}
-    >
+    <>
       {devs.map((dev, index) => (
         <Grid item xs={4} key={index}>
           <Card className={classes.card}>
@@ -34,6 +29,6 @@ export const DevsList: React.FC = () => {
           </Card>
         </Grid>
       ))}
-    </Grid>
+    </>
   );
 };
