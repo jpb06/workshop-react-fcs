@@ -15,7 +15,7 @@ export const CircularLoading = () => {
       alignItems="center"
       className={classes.root}
     >
-      <CircularProgress color="secondary" size={100} />
+      <CircularProgress color="secondary" size={100} title="circle-loading" />
     </Grid>
   );
 };

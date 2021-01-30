@@ -1,4 +1,3 @@
-import classes from "*.module.css";
 import React from "react";
 
 import { Grid, LinearProgress } from "@material-ui/core";
@@ -11,7 +10,11 @@ export const LinearLoading = () => {
   return (
     <Grid container spacing={3}>
       <Grid item xs={12}>
-        <LinearProgress color="secondary" className={classes.progress} />
+        <LinearProgress
+          color="secondary"
+          className={classes.progress}
+          title="linear-loading"
+        />
       </Grid>
     </Grid>
   );

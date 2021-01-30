@@ -10,5 +10,11 @@ export const GlobalLoadingIndicator = () => {
 
   if (!isFetching) return null;
 
-  return <LinearProgress color="secondary" className={classes.progress} />;
+  return (
+    <LinearProgress
+      color="secondary"
+      className={classes.progress}
+      title="app-is-loading"
+    />
+  );
 };
