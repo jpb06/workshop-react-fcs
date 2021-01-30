@@ -16,17 +16,15 @@ export const useSquadsSelectionChange = (): SquadSelectionChangeHookResult => {
     checked: boolean
   ) => {
     const index = parseInt(event.target.name, 10);
+    if (Number.isNaN(index) || ![0, 1, 2, 3].includes(index)) return;
 
     const newValues = [...formValues];
-    if (index !== -1) {
-      newValues[index] = checked;
-    }
+    newValues[index] = checked;
     setFormValues(newValues);
 
     const selectedSquads = newValues
       .map((el, index) => (el ? index + 1 : undefined))
       .filter((el) => el !== undefined) as Array<number>;
-
     setSelectedSquads(selectedSquads);
   };
 
