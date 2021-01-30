@@ -7,6 +7,10 @@ const setSelectedSquadsMock = jest.fn();
 const wrapper = mockDevFriendsContext(setSelectedSquadsMock);
 
 describe("Squads selection change hook", () => {
+  beforeEach(() => {
+    jest.resetAllMocks();
+  });
+
   it("should return form values set to true and a function to handle changes", () => {
     const { result } = renderHook(() => useSquadsSelectionChange(), {
       wrapper,
@@ -29,6 +33,7 @@ describe("Squads selection change hook", () => {
     });
 
     expect(result.current[1]).toStrictEqual([true, false, true, true]);
+    expect(setSelectedSquadsMock).toHaveBeenCalledTimes(1);
   });
 
   it("shouldn't update form values if event is invalid", async () => {
@@ -43,5 +48,6 @@ describe("Squads selection change hook", () => {
     });
 
     expect(result.current[1]).toStrictEqual([true, true, true, true]);
+    expect(setSelectedSquadsMock).toHaveBeenCalledTimes(0);
   });
 });
