@@ -17,7 +17,8 @@
     "paths": {
       "@api/*": ["api/hooks/*"],
       "@components/*": ["components/*"],
-      "@owntypes/*": ["types/*"]
+      "@owntypes/*": ["types/*"],
+      "@tests/*": ["tests/*"]
     }
   },
   "exclude": ["node_modules", ".next", "out"],
