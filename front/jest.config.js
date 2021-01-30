@@ -1,5 +1,9 @@
+const { pathsToModuleNameMapper } = require('ts-jest/utils');
+const { compilerOptions: { paths: tsconfigPaths } } = require('./tsconfig');
+
 module.exports = {
   roots: ['<rootDir>'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
   testPathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|.next)[/\\\\]'],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$'],
@@ -12,6 +16,7 @@ module.exports = {
   ],
   moduleNameMapper: {
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
-    '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__mocks__/fileMock.js',
+    '\\.(gif|ttf|eot|svg|png)$': 'test-file-stub',
+    ...pathsToModuleNameMapper(tsconfigPaths, { prefix: '<rootDir>/src' })
   },
 }
