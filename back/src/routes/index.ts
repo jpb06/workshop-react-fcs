@@ -10,7 +10,6 @@ mainRouter.get("/squads", (req, res) => res.status(200).json(squads));
 mainRouter.get("/devs", (req, res) => res.status(200).json(devs));
 mainRouter.post("/devsby", (req, res) => {
   const squads = req.body?.squads;
-  console.log("squads", squads);
 
   const isRequestValid =
     Array.isArray(squads) && squads.every((el) => /^\d+$/.test(el));
