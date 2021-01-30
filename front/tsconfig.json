@@ -16,6 +16,7 @@
     "baseUrl": "src",
     "paths": {
       "@api/*": ["api/hooks/*"],
+      "@logic/*": ["logic/*"],
       "@components/*": ["components/*"],
       "@owntypes/*": ["types/*"],
       "@tests/*": ["tests/*"]
