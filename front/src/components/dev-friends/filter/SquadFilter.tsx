@@ -9,8 +9,8 @@ import { useSquadFilterStyles } from "./SquadFilter.styles";
 
 export const SquadFilter: React.FC = () => {
   const classes = useSquadFilterStyles();
-
   const { data: squads } = useSquadsQuery();
+
   useSelectedSquadsInitialization(squads);
   const [handleChange, formValues] = useSquadsSelectionChange();
 
