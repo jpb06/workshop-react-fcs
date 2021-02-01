@@ -3,7 +3,7 @@ import React from "react";
 import { getDevDescription } from "@logic/dev/getDevDescription";
 import { render, screen } from "@testing-library/react";
 import { mockDevFriendsContext } from "@tests/mocks/DevFriends.context.mock";
-import { mockUseDevsBySquad } from "@tests/mocks/useDevsBySquadQuery.mock";
+import { setUseDevsBySquadReturnValue } from "@tests/mocks/useDevsBySquadQuery.mock";
 
 import { DevsList } from "./DevsList";
 
@@ -14,7 +14,7 @@ const wrapper = mockDevFriendsContext(setSelectedSquadsMock);
 
 describe("DevsList component", () => {
   it("should display a loading indicator if there is no data", () => {
-    mockUseDevsBySquad(undefined);
+    setUseDevsBySquadReturnValue(undefined);
 
     render(<DevsList />, { wrapper });
 
@@ -24,7 +24,7 @@ describe("DevsList component", () => {
   });
 
   it("should display nothing if there is no devs", () => {
-    mockUseDevsBySquad([]);
+    setUseDevsBySquadReturnValue([]);
 
     render(<DevsList />, { wrapper });
 
@@ -41,7 +41,7 @@ describe("DevsList component", () => {
       { firstName: "Arthur", squad: 3 },
     ];
 
-    mockUseDevsBySquad(devs);
+    setUseDevsBySquadReturnValue(devs);
 
     render(<DevsList />, { wrapper });
 

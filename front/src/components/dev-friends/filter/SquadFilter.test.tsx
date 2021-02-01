@@ -2,7 +2,7 @@ import React from "react";
 
 import { render, screen } from "@testing-library/react";
 import { mockDevFriendsContext } from "@tests/mocks/DevFriends.context.mock";
-import { mockUseSquadsQuery } from "@tests/mocks/useSquadQuery.mock";
+import { setUseSquadsReturnValue } from "@tests/mocks/useSquadQuery.mock";
 
 import { SquadFilter } from "./SquadFilter";
 
@@ -13,7 +13,7 @@ const wrapper = mockDevFriendsContext(setSelectedSquadsMock);
 
 describe("SquadFilter component", () => {
   it("should display nothing if there is no squads", () => {
-    mockUseSquadsQuery(undefined);
+    setUseSquadsReturnValue(undefined);
 
     render(<SquadFilter />, { wrapper });
 
@@ -21,7 +21,7 @@ describe("SquadFilter component", () => {
   });
 
   it("should display one checkbox per squad", () => {
-    mockUseSquadsQuery([1, 2, 3]);
+    setUseSquadsReturnValue([1, 2, 3]);
 
     render(<SquadFilter />, { wrapper });
 
