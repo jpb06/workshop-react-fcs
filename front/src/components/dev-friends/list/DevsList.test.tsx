@@ -1,10 +1,9 @@
 import React from "react";
-import { mocked } from "ts-jest/utils";
 
-import { useDevsBySquadQuery } from "@api/useDevsBySquadQuery.hook";
 import { getDevDescription } from "@logic/dev/getDevDescription";
 import { render, screen } from "@testing-library/react";
 import { mockDevFriendsContext } from "@tests/mocks/DevFriends.context.mock";
+import { mockUseDevsBySquad } from "@tests/mocks/useDevsBySquadQuery.mock";
 
 import { DevsList } from "./DevsList";
 
@@ -15,7 +14,7 @@ const wrapper = mockDevFriendsContext(setSelectedSquadsMock);
 
 describe("DevsList component", () => {
   it("should display a loading indicator if there is no data", () => {
-    mocked(useDevsBySquadQuery).mockReturnValueOnce({ data: undefined } as any);
+    mockUseDevsBySquad(undefined);
 
     render(<DevsList />, { wrapper });
 
@@ -25,7 +24,7 @@ describe("DevsList component", () => {
   });
 
   it("should display nothing if there is no devs", () => {
-    mocked(useDevsBySquadQuery).mockReturnValueOnce({ data: [] } as any);
+    mockUseDevsBySquad([]);
 
     render(<DevsList />, { wrapper });
 
@@ -42,9 +41,7 @@ describe("DevsList component", () => {
       { firstName: "Arthur", squad: 3 },
     ];
 
-    mocked(useDevsBySquadQuery).mockReturnValueOnce({
-      data: devs,
-    } as any);
+    mockUseDevsBySquad(devs);
 
     render(<DevsList />, { wrapper });
 
