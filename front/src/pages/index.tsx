@@ -3,14 +3,12 @@ import React from "react";
 import {
     GlobalLoadingIndicator
 } from "@components/generic/global-loading-indicator/GlobalLoadingIndicator";
-import {
-    Card, CardActionArea, CardContent, CardMedia, Grid, LinearProgress, Typography
-} from "@material-ui/core";
+import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "@material-ui/core";
 
 import { MyDevFriends } from "../components/dev-friends/MyDevFriends";
 import { useHomeStyles } from "./index.styles";
 
-export const Home = () => {
+export const Home = (): JSX.Element => {
   const classes = useHomeStyles();
 
   return (
