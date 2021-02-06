@@ -11,7 +11,7 @@ export const devsByRoute = async (req: Request, res: ApiResponse) => {
 
   if (!isRequestValid) return res.answer(400, "Invalid request");
 
-  const devs = await Dal.DevsStore.geyFor(req.body.squads, res.locals.context);
+  const devs = await Dal.DevsStore.getFor(req.body.squads, res.locals.context);
 
   return res.populate(devs);
 };

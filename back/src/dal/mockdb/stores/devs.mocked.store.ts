@@ -25,7 +25,7 @@ export const getBy = async (
   return squadDevs;
 };
 
-export const geyFor = async (
+export const getFor = async (
   idSquads: Array<number>,
   context: ObjectId
 ): Promise<Array<Dev>> => {
