@@ -1,23 +1,13 @@
 import express from "express";
 
-import { devs, squads } from "../data";
+import { devsRoute } from "./implementation/devs.route";
+import { devsByRoute } from "./implementation/devsBy.route";
+import { squadsRoute } from "./implementation/squads.route";
 
 export const mainRouter = express.Router();
 
-mainRouter.get("/", (req, res) => res.send("Hello hello"));
+mainRouter.get("/", (_, res) => res.send("Hello hello"));
 
-mainRouter.get("/squads", (req, res) => res.status(200).json(squads));
-mainRouter.get("/devs", (req, res) => res.status(200).json(devs));
-mainRouter.post("/devsby", (req, res) => {
-  const squads = req.body?.squads;
-
-  const isRequestValid =
-    Array.isArray(squads) && squads.every((el) => /^\d+$/.test(el));
-
-  if (!isRequestValid) return res.status(400).send();
-
-  const squadsDevs = devs.filter(({ squad }) =>
-    (squads as Array<number>).includes(squad)
-  );
-  return res.status(200).json(squadsDevs);
-});
+mainRouter.get("/squads", squadsRoute);
+mainRouter.get("/devs", devsRoute);
+mainRouter.post("/devsby", devsByRoute);
