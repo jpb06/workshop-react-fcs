@@ -17,11 +17,18 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": "src",
+    "paths": {
+      "@sharedtypes/*": ["../../shared-types/*"],
+      "@backtypes/*": ["types/*"],
+      "@dal": ["dal/index.ts"],
+      "@middlewares/*": ["middlewares/*"]
+    }
   },
   "compileOnSave": false,
   "buildOnSave": false,
   "typeRoots": ["node_modules/@types"],
-  "include": ["src"],
+  "include": ["src", "../shared-types"],
   "exclude": ["./node_modules/*"]
 }
