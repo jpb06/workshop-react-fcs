@@ -19,4 +19,11 @@ module.exports = {
     '\\.(gif|ttf|eot|svg|png)$': 'test-file-stub',
     ...pathsToModuleNameMapper(tsconfigPaths, { prefix: '<rootDir>/src' })
   },
+  collectCoverageFrom: [
+    "src/**/*.{ts,tsx}",
+    "!**/node_modules/**",
+    "!**/src/create.theme.ts",
+    "!**/src/tests-related/**",
+    "!**/src/api/hooks/**",
+  ]
 }
