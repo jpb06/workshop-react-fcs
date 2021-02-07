@@ -19,7 +19,8 @@
       "@logic/*": ["logic/*"],
       "@components/*": ["components/*"],
       "@sharedtypes/*": ["./../../shared-types/*"],
-      "@tests/*": ["tests/*"]
+      "@tests/*": ["tests/*"],
+      "@src/*": ["./*"]
     }
   },
   "exclude": ["node_modules", ".next", "out"],
