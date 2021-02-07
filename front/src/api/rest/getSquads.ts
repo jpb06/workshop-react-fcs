@@ -1,8 +1,10 @@
 import axios from "axios";
 
-import { apiUrl } from "./api.config";
+import { Squad } from "@sharedtypes/squad.interface";
 
-export const getSquads = async (): Promise<Array<number>> => {
-  const result = await axios.get<Array<number>>(`${apiUrl}/squads`);
+import { squadsUrl } from "./api.config";
+
+export const getSquads = async (): Promise<Array<Squad>> => {
+  const result = await axios.get<Array<Squad>>(squadsUrl);
   return result.data;
 };

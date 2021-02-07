@@ -1,15 +1,10 @@
 import axios from "axios";
 
-import { Dev } from "@owntypes/dev.type";
+import { Dev } from "@sharedtypes/dev.interface";
 
-import { apiUrl } from "./api.config";
+import { devsUrl } from "./api.config";
 
 export const getDevs = async (): Promise<Array<Dev>> => {
-  const result = await axios.get<Array<Dev>>(`${apiUrl}/devs`);
-  return result.data;
-};
-
-export const getDevsBy = async (squads: Array<number>): Promise<Array<Dev>> => {
-  const result = await axios.post<Array<Dev>>(`${apiUrl}/devsby`, { squads });
+  const result = await axios.get<Array<Dev>>(devsUrl);
   return result.data;
 };
