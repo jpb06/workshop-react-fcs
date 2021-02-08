@@ -6,11 +6,10 @@ import { ServerStyleSheets } from "@material-ui/core/styles";
 import { appTheme } from "../create.theme";
 
 export default class MyDocument extends Document {
-  render() {
+  render(): JSX.Element {
     return (
       <Html lang="en">
         <Head>
-          {/* PWA primary color */}
           <meta name="theme-color" content={appTheme.palette.primary.main} />
           <link
             rel="stylesheet"
