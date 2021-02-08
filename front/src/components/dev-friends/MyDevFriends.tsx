@@ -3,9 +3,7 @@ import React, { useState } from "react";
 import { CardActions, Grid } from "@material-ui/core";
 import { Squad } from "@sharedtypes/squad.interface";
 
-import { SquadFilter } from "./children/filter/SquadFilter";
-import { DevsList } from "./children/list/DevsList";
-import { StatusReport } from "./children/status-report/StatusReport";
+import { DevsList, SquadFilter, StatusReport } from "./children";
 import { DevFriendsContext } from "./contexts/DevFriendsContext.context";
 import { useMyDevFriendsStyles } from "./MyDevFriends.styles";
 
