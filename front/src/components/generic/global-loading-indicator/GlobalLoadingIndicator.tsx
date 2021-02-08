@@ -4,7 +4,7 @@ import { LinearProgress } from "@material-ui/core";
 
 import { useGlobalLoadingIndicatorStyles } from "./GlobalLoadingIndicator.styles";
 
-export const GlobalLoadingIndicator = () => {
+export const GlobalLoadingIndicator = (): JSX.Element => {
   const classes = useGlobalLoadingIndicatorStyles();
   const isFetching = useIsFetching();
 
