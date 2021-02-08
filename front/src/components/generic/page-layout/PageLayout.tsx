@@ -24,7 +24,7 @@ interface PageLayoutProps {
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: 3,
+      retry: 1,
       refetchOnWindowFocus: false,
       staleTime: 60 * 1000,
     },
