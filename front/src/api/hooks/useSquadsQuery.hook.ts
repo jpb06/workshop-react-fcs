@@ -1,5 +1,8 @@
-import { useQuery } from "react-query";
+import { QueryObserverResult, useQuery } from "react-query";
+
+import { Squad } from "@sharedtypes/squad.interface";
 
 import { getSquads } from "../rest/getSquads";
 
-export const useSquadsQuery = () => useQuery("squads", getSquads, {});
+export const useSquadsQuery = (): QueryObserverResult<Array<Squad>> =>
+  useQuery("squads", getSquads, {});
