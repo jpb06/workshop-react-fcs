@@ -5,8 +5,8 @@ import { DevFriendsStatus } from "@components/dev-friends/MyDevFriends";
 import { Squad } from "@sharedtypes/squad.interface";
 
 export const DevFriendsContextWrapper = (
-  setSelectedSquadsMock: jest.Mock<any, any>,
-  setStatusMock: jest.Mock<any, any>
+  setSelectedSquadsMock: jest.Mock<any, any> = jest.fn(),
+  setStatusMock: jest.Mock<any, any> = jest.fn()
 ): (({ children }) => JSX.Element) => {
   const wrapper = ({ children }) => {
     const statusState = useState<DevFriendsStatus>("loading");
