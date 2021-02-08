@@ -1,10 +1,11 @@
+import { DevFriendsContextWrapper } from "@src/tests-related/wrappers/DevFriends.context.wrapper";
 import { act, renderHook } from "@testing-library/react-hooks";
-import { mockDevFriendsContext } from "@tests/mocks/DevFriends.context.mock";
 
 import { useSquadsSelectionChange } from "./useSquadsSelectionChange.hook";
 
 const setSelectedSquadsMock = jest.fn();
-const wrapper = mockDevFriendsContext(setSelectedSquadsMock);
+const setStatusMock = jest.fn();
+const wrapper = DevFriendsContextWrapper(setSelectedSquadsMock, setStatusMock);
 
 describe("Squads selection change hook", () => {
   beforeEach(() => {
@@ -33,6 +34,7 @@ describe("Squads selection change hook", () => {
     });
 
     expect(result.current[1]).toStrictEqual([true, false, true, true]);
+    expect(setStatusMock).toHaveBeenCalledWith("loading");
     expect(setSelectedSquadsMock).toHaveBeenCalledTimes(1);
   });
 
@@ -48,6 +50,7 @@ describe("Squads selection change hook", () => {
     });
 
     expect(result.current[1]).toStrictEqual([true, true, true, true]);
+    expect(setStatusMock).toHaveBeenCalledWith("loading");
     expect(setSelectedSquadsMock).toHaveBeenCalledTimes(0);
   });
 });

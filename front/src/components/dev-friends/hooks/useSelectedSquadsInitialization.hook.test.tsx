@@ -1,10 +1,11 @@
+import { squadsMockData } from "@src/tests-related/data/squads.data";
+import { DevFriendsContextWrapper } from "@src/tests-related/wrappers/DevFriends.context.wrapper";
 import { renderHook } from "@testing-library/react-hooks";
-import { mockDevFriendsContext } from "@tests/mocks/DevFriends.context.mock";
 
 import { useSelectedSquadsInitialization } from "./useSelectedSquadsInitialization.hook";
 
 const setSelectedSquadsMock = jest.fn();
-const wrapper = mockDevFriendsContext(setSelectedSquadsMock);
+const wrapper = DevFriendsContextWrapper(setSelectedSquadsMock);
 
 describe("Selected squads initialization hook", () => {
   beforeEach(() => {
@@ -20,12 +21,11 @@ describe("Selected squads initialization hook", () => {
   });
 
   it("should update the context once if passed selected squads", () => {
-    const selectedSquads = [1, 2, 3, 4];
-    renderHook(() => useSelectedSquadsInitialization(selectedSquads), {
+    renderHook(() => useSelectedSquadsInitialization(squadsMockData), {
       wrapper,
     });
 
     expect(setSelectedSquadsMock).toHaveBeenCalledTimes(1);
-    expect(setSelectedSquadsMock).toHaveBeenCalledWith(selectedSquads);
+    expect(setSelectedSquadsMock).toHaveBeenCalledWith(squadsMockData);
   });
 });
