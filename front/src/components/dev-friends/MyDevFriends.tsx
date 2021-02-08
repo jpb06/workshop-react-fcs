@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-import { CircularLoading } from "@components/generic/circular-loading/CircularLoading";
 import { CardActions, Grid } from "@material-ui/core";
 import { Squad } from "@sharedtypes/squad.interface";
 
 import { SquadFilter } from "./children/filter/SquadFilter";
 import { DevsList } from "./children/list/DevsList";
+import { StatusReport } from "./children/status-report/StatusReport";
 import { DevFriendsContext } from "./contexts/DevFriendsContext.context";
 import { useMyDevFriendsStyles } from "./MyDevFriends.styles";
 
@@ -31,7 +31,7 @@ export const MyDevFriends = (): JSX.Element => {
         className={classes.list}
       >
         <DevsList />
-        {{ loading: <CircularLoading />, errored: <>Oh no!</> }[status]}
+        <StatusReport status={status} />
       </Grid>
     </DevFriendsContext.Provider>
   );
