@@ -1,5 +1,11 @@
 import React from "react";
 
-export const DevFriendsContext = React.createContext<
-  [Array<number>, React.Dispatch<Array<number>>]
->(undefined);
+import { Squad } from "@sharedtypes/squad.interface";
+
+import { DevFriendsStatus } from "../MyDevFriends";
+
+export const DevFriendsContext = React.createContext<{
+  selectedSquads: Array<Squad>;
+  setSelectedSquads: React.Dispatch<Array<Squad>>;
+  setStatus: React.Dispatch<React.SetStateAction<DevFriendsStatus>>;
+}>(undefined);
