@@ -1,4 +1,4 @@
-import { Dev } from "@owntypes/dev.type";
+import { Dev } from "@sharedtypes/dev.interface";
 
-export const getDevDescription = (dev: Dev) =>
+export const getDevDescription = (dev: Omit<Dev, "id">): string =>
   `${dev.firstName} - Squad ${dev.squad}`;
