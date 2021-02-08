@@ -2,7 +2,7 @@ import React from "react";
 
 import { getDevDescription } from "@logic/dev/getDevDescription";
 import { Card, CardContent, CardMedia, Grid } from "@material-ui/core";
-import { Dev as DevType } from "@owntypes/dev.type";
+import { Dev as DevType } from "@sharedtypes/dev.interface";
 
 import { useDevStyles } from "./Dev.styles";
 
@@ -10,7 +10,11 @@ interface DevProps extends DevType {
   id: number;
 }
 
-export const Dev: React.FC<DevProps> = ({ id, firstName, squad }) => {
+export const Dev: React.FC<DevProps> = ({
+  id,
+  firstName,
+  squad,
+}): JSX.Element => {
   const classes = useDevStyles();
 
   const description = getDevDescription({ firstName, squad });

@@ -1,19 +1,18 @@
 import React from "react";
 
+import { setUseSquadsReturnValue } from "@src/tests-related/mocks/useSquadQuery.mock";
+import { DevFriendsContextWrapper } from "@src/tests-related/wrappers/DevFriends.context.wrapper";
 import { render, screen } from "@testing-library/react";
-import { mockDevFriendsContext } from "@tests/mocks/DevFriends.context.mock";
-import { setUseSquadsReturnValue } from "@tests/mocks/useSquadQuery.mock";
 
 import { SquadFilter } from "./SquadFilter";
 
 jest.mock("@api/useSquadsQuery.hook");
 
-const setSelectedSquadsMock = jest.fn();
-const wrapper = mockDevFriendsContext(setSelectedSquadsMock);
+const wrapper = DevFriendsContextWrapper();
 
 describe("SquadFilter component", () => {
   it("should display nothing if there is no squads", () => {
-    setUseSquadsReturnValue(undefined);
+    setUseSquadsReturnValue();
 
     render(<SquadFilter />, { wrapper });
 
@@ -21,7 +20,11 @@ describe("SquadFilter component", () => {
   });
 
   it("should display one checkbox per squad", () => {
-    setUseSquadsReturnValue([1, 2, 3]);
+    setUseSquadsReturnValue([
+      { id: 1, squad: 1 },
+      { id: 2, squad: 2 },
+      { id: 3, squad: 3 },
+    ]);
 
     render(<SquadFilter />, { wrapper });
 
