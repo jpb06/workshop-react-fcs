@@ -2,8 +2,8 @@ import React from "react";
 
 import { render, screen } from "@testing-library/react";
 
+import { getDevDescription } from "../../../logic/getDevDescription";
 import { Dev } from "./Dev";
-import { getDevDescription } from "./logic/getDevDescription";
 
 describe("Dev component", () => {
   it("should display a dev", () => {

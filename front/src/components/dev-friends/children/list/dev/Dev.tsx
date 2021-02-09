@@ -3,8 +3,8 @@ import React from "react";
 import { Card, CardContent, CardMedia, Grid } from "@material-ui/core";
 import { Dev as DevType } from "@sharedtypes/dev.interface";
 
+import { getDevDescription } from "../../../logic/getDevDescription";
 import { useDevStyles } from "./Dev.styles";
-import { getDevDescription } from "./logic/getDevDescription";
 
 interface DevProps extends DevType {
   id: number;

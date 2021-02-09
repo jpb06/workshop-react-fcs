@@ -1,6 +1,6 @@
 import React from "react";
 
-import { getDevDescription } from "@components/dev-friends/children/list/dev/logic/getDevDescription";
+import { getDevDescription } from "@components/dev-friends/logic/getDevDescription";
 import { devsMockData } from "@src/tests-related/data/devs.data";
 import { setUseDevsBySquadReturnValue } from "@src/tests-related/mocks/useDevsBySquadQuery.mock";
 import { DevFriendsContextWrapper } from "@src/tests-related/wrappers/DevFriends.context.wrapper";
