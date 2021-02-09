@@ -1,10 +1,10 @@
 import React from "react";
 
-import { getDevDescription } from "@logic/dev/getDevDescription";
 import { Card, CardContent, CardMedia, Grid } from "@material-ui/core";
 import { Dev as DevType } from "@sharedtypes/dev.interface";
 
 import { useDevStyles } from "./Dev.styles";
+import { getDevDescription } from "./logic/getDevDescription";
 
 interface DevProps extends DevType {
   id: number;
