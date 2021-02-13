@@ -6,15 +6,7 @@ import { Dev as DevType } from "@sharedtypes/dev.interface";
 import { useDevStyles } from "./Dev.styles";
 import { getDevDescription } from "./logic/getDevDescription";
 
-interface DevProps extends DevType {
-  id: number;
-}
-
-export const Dev: React.FC<DevProps> = ({
-  id,
-  firstName,
-  squad,
-}): JSX.Element => {
+export const Dev: React.FC<DevType> = ({ firstName, squad }): JSX.Element => {
   const classes = useDevStyles();
 
   const description = getDevDescription({ firstName, squad });
@@ -24,7 +16,7 @@ export const Dev: React.FC<DevProps> = ({
       <Card className={classes.card} role="dev" title={description}>
         <CardMedia
           className={classes.media}
-          image={`https://picsum.photos/300?random=${id + 1}`}
+          image={`https://picsum.photos/seed/${firstName}/300`}
           role="img"
           title={firstName}
         />

@@ -18,7 +18,7 @@ export const DevsList: React.FC = () => {
   return (
     <>
       {devs.map((dev, index) => (
-        <Dev key={index} id={index} {...dev} />
+        <Dev key={index} {...dev} />
       ))}
     </>
   );
