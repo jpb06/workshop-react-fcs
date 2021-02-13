@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import { CardActions, Grid } from "@material-ui/core";
 import { Squad } from "@sharedtypes/squad.interface";
 
-import { DevsList, SquadFilter, StatusReport } from "./children";
 import { DevFriendsContext } from "./contexts/DevFriendsContext.context";
+import { SquadFilter } from "./filter/SquadFilter";
+import { DevsList } from "./list/DevsList";
 import { useMyDevFriendsStyles } from "./MyDevFriends.styles";
+import { StatusReport } from "./status-report/StatusReport";
 
 export type DevFriendsStatus = "loading" | "errored" | "ready";
 
