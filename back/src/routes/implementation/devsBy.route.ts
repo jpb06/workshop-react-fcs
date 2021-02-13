@@ -12,6 +12,7 @@ export const devsByRoute = async (req: Request, res: ApiResponse) => {
   if (!isRequestValid) return res.answer(400, "Invalid request");
 
   const devs = await Dal.DevsStore.getFor(req.body.squads, res.locals.context);
+  const sortedBySquad = devs.sort((a, b) => a.squad - b.squad);
 
-  return res.populate(devs);
+  return res.populate(sortedBySquad);
 };
