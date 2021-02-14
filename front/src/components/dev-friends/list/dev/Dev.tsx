@@ -6,10 +6,21 @@ import { Dev as DevType } from "@sharedtypes/dev.interface";
 import { useDevStyles } from "./Dev.styles";
 import { getDevDescription } from "./logic/getDevDescription";
 
-export const Dev: React.FC<DevType> = ({ firstName, squad }): JSX.Element => {
+interface DevProps extends DevType {
+  onSelected: (id: number) => void;
+}
+
+export const Dev: React.FC<DevProps> = ({
+  onSelected,
+  id,
+  firstName,
+  squad,
+}): JSX.Element => {
   const classes = useDevStyles();
 
   const description = getDevDescription({ firstName, squad });
+
+  const HandleClick = () => onSelected(id);
 
   return (
     <Grid item xs={4}>
@@ -19,6 +30,7 @@ export const Dev: React.FC<DevType> = ({ firstName, squad }): JSX.Element => {
           image={`https://picsum.photos/seed/${firstName}/300`}
           role="img"
           title={firstName}
+          onClick={HandleClick}
         />
         <CardContent>{description}</CardContent>
       </Card>
