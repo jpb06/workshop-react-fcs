@@ -23,7 +23,8 @@
       "@sharedtypes/*": ["../../shared-types/*"],
       "@backtypes/*": ["types/*"],
       "@dal": ["dal/index.ts"],
-      "@middlewares/*": ["middlewares/*"]
+      "@middlewares/*": ["middlewares/*"],
+      "@logic/*": ["logic/*"]
     }
   },
   "compileOnSave": false,

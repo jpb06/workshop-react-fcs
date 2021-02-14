@@ -3,7 +3,7 @@ import { RouteLogsService } from "services/route.logs.service";
 
 import { Dev } from "@sharedtypes/dev.interface";
 
-import { getDevs } from "../logic";
+import { getDevs, persist } from "../logic";
 import { log } from "../logic/logging";
 
 export const getAll = async (context: ObjectId): Promise<Array<Dev>> => {
@@ -35,4 +35,12 @@ export const getFor = async (
   RouteLogsService.add(context, log("devs", "Getting", squadsDevs.length));
 
   return squadsDevs;
+};
+
+export const update = async (dev: Dev, context: ObjectId) => {
+  const { logs } = await persist(dev, "devs");
+
+  RouteLogsService.add(context, logs);
+
+  return true;
 };

@@ -2,12 +2,13 @@ import { Request } from "express";
 
 import { ApiResponse } from "@backtypes/api.response.interface";
 import * as Dal from "@dal";
+import { isNumber } from "@logic/regex";
 
 export const devsByRoute = async (req: Request, res: ApiResponse) => {
   const squads = req.body?.squads;
 
   const isRequestValid =
-    Array.isArray(squads) && squads.every((el) => /^\d+$/.test(el));
+    Array.isArray(squads) && squads.every((el) => isNumber(el));
 
   if (!isRequestValid) return res.answer(400, "Invalid request");
 
