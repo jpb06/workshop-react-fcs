@@ -5,8 +5,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import {
     Card, CardContent, CardMedia, CssBaseline, Grid, ThemeProvider, Typography
 } from "@material-ui/core";
-import { appTheme } from "@src/create.theme";
 
+import { appTheme } from "../../../create.theme";
 import { GlobalLoadingIndicator } from "../global-loading-indicator/GlobalLoadingIndicator";
 import { usePageLayoutStyles } from "./PageLayout.style";
 

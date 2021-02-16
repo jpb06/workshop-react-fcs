@@ -1,4 +1,4 @@
-import { Squad } from "@src/../../shared-types/squad.interface";
+import { Squad } from "@sharedtypes/squad.interface";
 
 export const squadsMockData: Array<Squad> = [
   {

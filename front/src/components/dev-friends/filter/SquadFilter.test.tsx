@@ -1,8 +1,8 @@
 import React from "react";
 
-import { setUseSquadsReturnValue } from "@src/tests-related/mocks/useSquadQuery.mock";
-import { DevFriendsContextWrapper } from "@src/tests-related/wrappers/DevFriends.context.wrapper";
 import { render, screen } from "@testing-library/react";
+import { setUseSquadsReturnValue } from "@tests/mocks/useSquadQuery.mock";
+import { DevFriendsContextWrapper } from "@tests/wrappers/DevFriendsContext.wrapper";
 
 import { SquadFilter } from "./SquadFilter";
 

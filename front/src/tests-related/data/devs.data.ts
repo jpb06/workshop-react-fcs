@@ -1,4 +1,4 @@
-import { Dev } from "@src/../../shared-types/dev.interface";
+import { Dev } from "@sharedtypes/dev.interface";
 
 export const devsMockData: Array<Dev> = [
   {

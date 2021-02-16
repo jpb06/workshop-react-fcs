@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { Dev } from "@src/../../shared-types/dev.interface";
+import { Dev } from "@sharedtypes/dev.interface";
 
 import { devsByUrl } from "./api.config";
 

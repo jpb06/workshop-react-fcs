@@ -1,6 +1,6 @@
-import { squadsMockData } from "@src/tests-related/data/squads.data";
-import { DevFriendsContextWrapper } from "@src/tests-related/wrappers/DevFriends.context.wrapper";
 import { renderHook } from "@testing-library/react-hooks";
+import { squadsMockData } from "@tests/data/squads.data";
+import { DevFriendsContextWrapper } from "@tests/wrappers/DevFriendsContext.wrapper";
 
 import { useSelectedSquadsInitialization } from "./useSelectedSquadsInitialization.hook";
 

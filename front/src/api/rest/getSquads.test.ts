@@ -1,7 +1,7 @@
 import { setupServer } from "msw/node";
 
-import { squadsMockData } from "@src/tests-related/data/squads.data";
-import { mockApiGetSquads } from "@src/tests-related/msw/api.getSquads.mock";
+import { squadsMockData } from "@tests/data/squads.data";
+import { mockApiGetSquads } from "@tests/msw/api.getSquads.mock";
 
 import { getSquads } from "./getSquads";
 
