@@ -1,16 +1,18 @@
 import React from "react";
 
 import { getDevDescription } from "@components/dev-friends/list/dev/logic/getDevDescription";
-import { devsMockData } from "@src/tests-related/data/devs.data";
-import { setUseDevsBySquadReturnValue } from "@src/tests-related/mocks/useDevsBySquadQuery.mock";
-import { DevFriendsContextWrapper } from "@src/tests-related/wrappers/DevFriends.context.wrapper";
 import { render, screen } from "@testing-library/react";
+import { devsMockData } from "@tests/data/devs.data";
+import { setUseDevsBySquadReturnValue } from "@tests/mocks/useDevsBySquadQuery.mock";
+import {
+    DevFriendContextAndQueryProvidedWrapper
+} from "@tests/wrappers/DevFriendContextAndQueryProvided.wrapper";
 
 import { DevsList } from "./DevsList";
 
 jest.mock("@api/useDevsBySquadQuery.hook");
 
-const wrapper = DevFriendsContextWrapper();
+const { wrapper } = DevFriendContextAndQueryProvidedWrapper();
 
 describe("DevsList component", () => {
   it("should display nothing if there is no data", () => {
