@@ -2,6 +2,7 @@ import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import { DevFriendsContext } from "@components/dev-friends/contexts/DevFriendsContext.context";
+import { Squad } from "@shared/types/squad.interface";
 
 import { getQueryClient } from "./queryClient";
 import { useMockedDevFriendsState } from "./useMockedDevFriendsState";
@@ -15,12 +16,14 @@ interface DevFriendContextAndQueryProvidedWrapperResult {
 
 export const DevFriendContextAndQueryProvidedWrapper = (
   setSelectedSquadsMock: jest.Mock<any, any> = jest.fn(),
-  setStatusMock: jest.Mock<any, any> = jest.fn()
+  setStatusMock: jest.Mock<any, any> = jest.fn(),
+  selectedSquad: Array<Squad> | undefined = undefined
 ): DevFriendContextAndQueryProvidedWrapperResult => {
   const wrapper = ({ children }) => {
     const { selectedSquadsState, statusState } = useMockedDevFriendsState(
       setSelectedSquadsMock,
-      setStatusMock
+      setStatusMock,
+      selectedSquad
     );
 
     return (
