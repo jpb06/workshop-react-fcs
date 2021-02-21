@@ -2,7 +2,7 @@ import { Request } from "express";
 
 import { ApiResponse } from "@backtypes/api.response.interface";
 import * as Dal from "@dal";
-import { isNumber } from "@logic/regex";
+import { isNumber } from "@shared/logic/regex";
 
 export const devsByRoute = async (req: Request, res: ApiResponse) => {
   const squads = req.body?.squads;

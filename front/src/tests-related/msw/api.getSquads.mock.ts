@@ -1,7 +1,8 @@
 import { RequestHandler, rest } from "msw";
 
-import { Squad } from "@sharedtypes/squad.interface";
-import { squadsUrl } from "@src/api/rest/api.config";
+import { Squad } from "@shared/types//squad.interface";
+
+import { squadsUrl } from "../../api/rest/api.config";
 
 export const mockApiGetSquads = (
   data: Array<Squad>,

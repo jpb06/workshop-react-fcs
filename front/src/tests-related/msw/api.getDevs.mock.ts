@@ -1,7 +1,8 @@
 import { RequestHandler, rest } from "msw";
 
-import { Dev } from "@sharedtypes/dev.interface";
-import { devsUrl } from "@src/api/rest/api.config";
+import { Dev } from "@shared/types/dev.interface";
+
+import { devsUrl } from "../../api/rest/api.config";
 
 export const mockApiGetDevs = (
   data: Array<Dev>,

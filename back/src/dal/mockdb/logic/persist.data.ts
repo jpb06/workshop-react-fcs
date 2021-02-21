@@ -1,8 +1,8 @@
 import fs from "fs-extra";
 
 import { LoggedResult } from "@backtypes/logged.result.interface";
-import { Dev } from "@sharedtypes/dev.interface";
-import { Squad } from "@sharedtypes/squad.interface";
+import { Dev } from "@shared/types/dev.interface";
+import { Squad } from "@shared/types/squad.interface";
 
 import { getDbPath } from "./db.path";
 import { getDevs, getSquads } from "./get.data";

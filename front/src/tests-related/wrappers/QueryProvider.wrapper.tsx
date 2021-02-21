@@ -1,23 +1,14 @@
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-      refetchOnWindowFocus: false,
-      staleTime: 60 * 1000,
-    },
-    mutations: {
-      retry: false,
-    },
-  },
-});
+import { getQueryClient } from "./queryClient";
 
 interface QueryProviderWrapperResult {
   wrapper: ({ children }) => JSX.Element;
   queryClient: QueryClient;
 }
+
+const queryClient = getQueryClient();
 
 export const QueryProviderWrapper = (): QueryProviderWrapperResult => {
   const wrapper = ({ children }) => {

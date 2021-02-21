@@ -4,7 +4,7 @@ import { BlockingError } from "@components/generic/blocking-error/BlockingError"
 import { CircularLoading } from "@components/generic/circular-loading/CircularLoading";
 import { DownTransition } from "@components/generic/down-transition/DownTransition";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@material-ui/core";
-import { Dev } from "@sharedtypes/dev.interface";
+import { Dev } from "@shared/types/dev.interface";
 
 import { useModalActions } from "./hooks/useModalActions.hook";
 import { IdleState } from "./states/IdleState";
@@ -32,7 +32,7 @@ export const ChangeSquadModal: React.FC<ChangeSquadModalProps> = ({
       disableBackdropClick
       disableEscapeKeyDown
       maxWidth="xs"
-      aria-labelledby="change-squad"
+      aria-label="change-squad"
       open={isOpen}
       TransitionComponent={DownTransition}
     >

@@ -1,18 +1,16 @@
-import { useState } from "react";
-
 import { DevFriendsContext } from "@components/dev-friends/contexts/DevFriendsContext.context";
-import { DevFriendsStatus } from "@components/dev-friends/MyDevFriends";
-import { Squad } from "@sharedtypes/squad.interface";
+
+import { useMockedDevFriendsState } from "./useMockedDevFriendsState";
 
 export const DevFriendsContextWrapper = (
   setSelectedSquadsMock: jest.Mock<any, any> = jest.fn(),
   setStatusMock: jest.Mock<any, any> = jest.fn()
 ): (({ children }) => JSX.Element) => {
   const wrapper = ({ children }) => {
-    const statusState = useState<DevFriendsStatus>("loading");
-    const selectedSquadsState = useState<Array<Squad>>(undefined);
-    selectedSquadsState[1] = setSelectedSquadsMock;
-    statusState[1] = setStatusMock;
+    const { selectedSquadsState, statusState } = useMockedDevFriendsState(
+      setSelectedSquadsMock,
+      setStatusMock
+    );
 
     return (
       <DevFriendsContext.Provider

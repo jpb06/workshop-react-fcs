@@ -1,4 +1,4 @@
-import { Dev } from "@sharedtypes/dev.interface";
+import { Dev } from "@shared/types/dev.interface";
 
 export const devs: Array<Dev> = [
   { id: 1, firstName: "Xavier", squad: 3 },
