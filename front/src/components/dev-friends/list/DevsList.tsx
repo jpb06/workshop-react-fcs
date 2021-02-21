@@ -21,7 +21,9 @@ export const DevsList: React.FC = () => {
     setSelectedDev(devs.find((el) => el.id === id));
     setIsModalOpen(true);
   };
-  const handleCloseModal = () => setIsModalOpen(false);
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   if (!devs) return null;
 
