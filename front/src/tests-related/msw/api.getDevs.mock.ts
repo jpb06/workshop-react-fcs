@@ -1,6 +1,6 @@
 import { RequestHandler, rest } from "msw";
 
-import { Dev } from "@sharedtypes/dev.interface";
+import { Dev } from "@shared/types/dev.interface";
 
 import { devsUrl } from "../../api/rest/api.config";
 

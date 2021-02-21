@@ -3,7 +3,7 @@ import { MockedFunction } from "ts-jest/dist/utils/testing";
 import { mocked } from "ts-jest/utils";
 
 import { useSquadsQuery } from "@api/useSquadsQuery.hook";
-import { Squad } from "@sharedtypes/squad.interface";
+import { Squad } from "@shared/types/squad.interface";
 
 export const setUseSquadsReturnValue = (
   data?: Array<Squad>

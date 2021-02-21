@@ -1,14 +1,14 @@
-import { Dev } from "@sharedtypes/dev.interface";
+import { Dev } from "@shared/types/dev.interface";
 
 export const devsMockData: Array<Dev> = [
   {
     id: 1,
     firstName: "Yolo man",
-    squad: 53,
+    squad: 1,
   },
   {
     id: 2,
     firstName: "Cool girl",
-    squad: 60,
+    squad: 2,
   },
 ];

@@ -1,7 +1,7 @@
 import { MutationStatus } from "react-query";
 
 import { useChangeDevSquadMutation } from "@api/useChangeDevSquadMutation.hook";
-import { Dev } from "@sharedtypes/dev.interface";
+import { Dev } from "@shared/types/dev.interface";
 
 interface ModalActions {
   handleSquadChanged: (id: number) => void;

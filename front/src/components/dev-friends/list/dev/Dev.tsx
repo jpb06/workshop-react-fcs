@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Card, CardContent, CardMedia, Grid } from "@material-ui/core";
-import { Dev as DevType } from "@sharedtypes/dev.interface";
+import { Dev as DevType } from "@shared/types/dev.interface";
 
 import { useDevStyles } from "./Dev.styles";
 import { getDevDescription } from "./logic/getDevDescription";

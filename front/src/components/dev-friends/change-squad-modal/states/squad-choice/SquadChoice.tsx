@@ -2,7 +2,7 @@ import React from "react";
 
 import { Avatar, ListItem, ListItemAvatar, ListItemText } from "@material-ui/core";
 import GroupIcon from "@material-ui/icons/Group";
-import { Squad } from "@sharedtypes/squad.interface";
+import { Squad } from "@shared/types/squad.interface";
 
 import { useSquadChoiceStyles } from "./SquadChoice.styles";
 

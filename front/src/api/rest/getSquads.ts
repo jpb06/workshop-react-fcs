@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { Squad } from "@sharedtypes/squad.interface";
+import { Squad } from "@shared/types/squad.interface";
 
 import { squadsUrl } from "./api.config";
 

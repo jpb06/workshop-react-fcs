@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 
-import { Squad } from "@sharedtypes/squad.interface";
+import { Squad } from "@shared/types/squad.interface";
 
 import { DevFriendsContext } from "../../contexts/DevFriendsContext.context";
 

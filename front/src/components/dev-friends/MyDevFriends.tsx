@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { CardActions, Grid } from "@material-ui/core";
-import { Squad } from "@sharedtypes/squad.interface";
+import { Squad } from "@shared/types/squad.interface";
 
 import { DevFriendsContext } from "./contexts/DevFriendsContext.context";
 import { SquadFilter } from "./filter/SquadFilter";
