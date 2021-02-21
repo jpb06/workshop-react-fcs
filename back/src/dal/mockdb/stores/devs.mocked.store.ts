@@ -1,7 +1,7 @@
 import { ObjectId } from "bson";
 import { RouteLogsService } from "services/route.logs.service";
 
-import { Dev } from "@sharedtypes/dev.interface";
+import { Dev } from "@shared/types/dev.interface";
 
 import { getDevs, persist } from "../logic";
 import { log } from "../logic/logging";
