@@ -1,10 +1,9 @@
-import axios from "axios";
-
-import { Dev } from "@sharedtypes/dev.interface";
+import { Dev } from "@shared/types/dev.interface";
 
 import { devsByUrl } from "./api.config";
+import { post } from "./axios.wrappers";
 
 export const getDevsBy = async (squads: Array<number>): Promise<Array<Dev>> => {
-  const result = await axios.post<Array<Dev>>(devsByUrl, { squads });
-  return result.data;
+  const result = await post<Array<Dev>>(devsByUrl, { squads });
+  return result;
 };
