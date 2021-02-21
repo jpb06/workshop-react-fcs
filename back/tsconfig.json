@@ -20,7 +20,7 @@
     "skipLibCheck": true,
     "baseUrl": "src",
     "paths": {
-      "@sharedtypes/*": ["../../shared-types/*"],
+      "@shared/*": ["../../front/shared/*"],
       "@backtypes/*": ["types/*"],
       "@dal": ["dal/index.ts"],
       "@middlewares/*": ["middlewares/*"],
@@ -30,6 +30,6 @@
   "compileOnSave": false,
   "buildOnSave": false,
   "typeRoots": ["node_modules/@types"],
-  "include": ["src", "../shared-types"],
+  "include": ["src", "../front/shared"],
   "exclude": ["./node_modules/*"]
 }

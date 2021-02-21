@@ -18,10 +18,10 @@
       "@api/*": ["api/hooks/*"],
       "@logic/*": ["logic/*"],
       "@components/*": ["components/*"],
-      "@sharedtypes/*": ["./../../shared-types/*"],
+      "@shared/*": ["./../shared/*"],
       "@tests/*": ["tests-related/*"]
     }
   },
   "exclude": ["node_modules", ".next", "out"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./../shared-types/*"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./shared/**/*.ts"]
 }
