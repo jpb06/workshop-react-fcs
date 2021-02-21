@@ -2,7 +2,8 @@ import React from "react";
 import { useIsFetching } from "react-query";
 import { mocked } from "ts-jest/utils";
 
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/dom";
+import { render } from "@testing-library/react";
 
 import { GlobalLoadingIndicator } from "./GlobalLoadingIndicator";
 
