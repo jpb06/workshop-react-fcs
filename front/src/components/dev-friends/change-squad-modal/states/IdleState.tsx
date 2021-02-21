@@ -4,7 +4,7 @@ import { useDevsQuery } from "@api/useDevsQuery.hook";
 import { useSquadsQuery } from "@api/useSquadsQuery.hook";
 import { CircularLoading } from "@components/generic/circular-loading/CircularLoading";
 import { List } from "@material-ui/core";
-import { Dev } from "@sharedtypes/dev.interface";
+import { Dev } from "@shared/types/dev.interface";
 
 import { SquadChoice } from "./squad-choice/SquadChoice";
 
@@ -28,7 +28,7 @@ export const IdleState: React.FC<IdleStateProps> = ({
       <>
         {dev.firstName} currently belongs to squad {dev.squad}
       </>
-      <List>
+      <List aria-label="Squads list">
         {squads
           .filter((squad) => squad.id !== dev.squad)
           .map((squad) => (
