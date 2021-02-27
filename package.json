@@ -12,7 +12,7 @@
       "front:test": "cd front && yarn test:dev",
       "dev": "run-p back:dev front:dev",
       "postinstall": "husky install",
-      "type-check": "tsc --pretty --noEmit"
+      "type-check": "cd front && tsc --pretty --noEmit"
    },
    "lint-staged": {
       "*.@(ts|tsx)": [
@@ -23,6 +23,7 @@
    "devDependencies": {
       "npm-run-all": "^4.1.5",
       "husky": "^5.1.1",
-      "lint-staged": "^10.5.4"
+      "lint-staged": "^10.5.4",
+      "typescript": "^4.2.2"
    }
 }
