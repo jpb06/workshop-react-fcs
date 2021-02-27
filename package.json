@@ -6,6 +6,10 @@
       "front",
       "back"
    ],
+   "engines": {
+      "node": "14.x",
+      "yarn": "1.22.10"
+   },
    "scripts": {
       "back:dev": "cd back && yarn dev",
       "front:dev": "cd front && yarn dev",
