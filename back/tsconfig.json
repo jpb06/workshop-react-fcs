@@ -15,14 +15,15 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "baseUrl": "src",
     "paths": {
       "@shared/*": ["../../front/shared/*"],
+      "@services/*": ["services/*"],
       "@backtypes/*": ["types/*"],
-      "@dal": ["dal/index.ts"],
+      "@dal": ["dal"],
       "@middlewares/*": ["middlewares/*"],
       "@logic/*": ["logic/*"]
     }

@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { newObjectId } from "logic/objectId.logic";
+
+import { newObjectId } from "@logic/objectId.logic";
 
 export const contextInitializationMiddleware = (
   req: Request,

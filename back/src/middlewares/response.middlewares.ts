@@ -3,8 +3,7 @@ import chalk from "chalk";
 import { NextFunction, Request } from "express";
 
 import { AnswerData, ApiResponse } from "@backtypes/api.response.interface";
-
-import { RouteLogsService } from "../services/route.logs.service";
+import { RouteLogsService } from "@services/route.logs.service";
 
 const logRouteResult = (
   req: Request,

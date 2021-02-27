@@ -1,6 +1,6 @@
 import { ObjectId } from "bson";
-import { RouteLogsService } from "services/route.logs.service";
 
+import { RouteLogsService } from "@services/route.logs.service";
 import { Squad } from "@shared/types/squad.interface";
 
 import { getSquads } from "../logic";
