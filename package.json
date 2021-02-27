@@ -10,9 +10,11 @@
       "back:dev": "cd back && yarn dev",
       "front:dev": "cd front && yarn dev",
       "front:test": "cd front && yarn test:dev",
-      "dev": "run-p back:dev front:dev"
+      "dev": "run-p back:dev front:dev",
+      "postinstall": "husky install"
    },
    "devDependencies": {
-      "npm-run-all": "^4.1.5"
+      "npm-run-all": "^4.1.5",
+      "husky": "^5.1.1"
    }
 }
