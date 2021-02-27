@@ -1,1 +1,1 @@
-export const isNumber = (value: any) => /^\d+$/.test(value);
+export const isNumber = (value: string): boolean => /^\d+$/.test(value);
