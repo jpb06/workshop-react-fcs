@@ -11,7 +11,8 @@
       "front:dev": "cd front && yarn dev",
       "front:test": "cd front && yarn test:dev",
       "dev": "run-p back:dev front:dev",
-      "postinstall": "husky install"
+      "postinstall": "husky install",
+      "type-check": "tsc --pretty --noEmit"
    },
    "lint-staged": {
       "*.@(ts|tsx)": [
